@@ -33,12 +33,11 @@ public class LoginController extends HttpServlet {
         String roleCookie = CookieUtil.getCookie(request, "role");
 
         if (usernameCookie != null && "admin".equals(roleCookie)) {
-            // Redirect to admin dashboard if cookies confirm admin login
             response.sendRedirect(request.getContextPath() + "/pages/admin_dashboard.jsp");
             return;
         }
 
-        // If no valid session or cookie, forward to login page
+        // Forward to the login page
         request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
     }
 

@@ -34,4 +34,11 @@ public class CookieUtil {
         cookie.setPath("/");
         response.addCookie(cookie);
     }
+
+    // Clear multiple cookies
+    public static void clearCookies(HttpServletResponse response, String... cookieNames) {
+        for (String name : cookieNames) {
+            removeCookie(response, name);
+        }
+    }
 }
